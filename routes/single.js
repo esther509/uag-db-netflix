@@ -5,7 +5,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function (req, res) {
 	
-	res.render('pages/index', { title: 'UAG Netflix' });
+	res.render('pages/single', { title: 'UAG Netflix' });
 });
 
 module.exports = router;
