@@ -5,3 +5,5 @@ obj
 typings
 *.dll
 .ntvs*
+/~$scripcion_proyecto.docx
+*.tmp
