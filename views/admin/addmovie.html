@@ -1,0 +1,43 @@
+﻿<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+    <%- include('../partials/head.html', {title: title}) -%>
+</head>
+<body>
+    <div class="container">
+        <div class="container_wrap">
+            <%- include('../partials/header_top.html') -%>
+            <div class="content">
+                <div class="register">
+                    <div class="col-md-12 login-right">
+                        <h3>Registered Customers</h3>
+                        <p>If you have an account with us, please log in.</p>
+                        <form>
+                            <div>
+                                <span>Email Address<label>*</label></span>
+                                <input type="text">
+                            </div>
+                            <div>
+                                <span>Password<label>*</label></span>
+                                <input type="text">
+                            </div>
+                            <a class="forgot" href="#">Forgot Your Password?</a>
+                            <input type="submit" value="Login">
+                        </form>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <%- include('../partials/footer.html') -%>
+    </div>
+</body>
+</html>
