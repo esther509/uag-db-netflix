@@ -20,7 +20,8 @@ CREATE TABLE public.movie (
    posterUrl TEXT,
    videoUrl TEXT,
    releaseDate DATE,
-   updateDate DATE
+   updateDate DATE,
+   plot TEXT
 );
 
 CREATE TABLE public.director (

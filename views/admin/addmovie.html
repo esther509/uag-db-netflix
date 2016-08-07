@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
     <%- include('../partials/head.html', {title: title}) -%>
+    <script type="text/javascript" src="/javascripts/addmovie.js"></script>
 </head>
 <body>
     <div class="container">
@@ -15,20 +16,109 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <%- include('../partials/header_top.html') -%>
             <div class="content">
                 <div class="register">
-                    <div class="col-md-12 login-right">
-                        <h3>Registered Customers</h3>
-                        <p>If you have an account with us, please log in.</p>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="bs-component">
+                                <form class="well" id="search-by-title-form" onsubmit="return false;">
+                                    <div>
+                                        <label class="control-label" for="t">Titulo:</label>
+                                        <input type="text" id="t" name="t" class="input-small" placeholder="Titulo de la pelicula a buscar">
+                                        &nbsp;&nbsp;
+                                        <label class="control-label" for="y">Año:</label>
+                                        <input type="text" id="y" name="y" class="input-small" style="width: 100px;">
+                                        &nbsp;&nbsp;
+                                        <label class="control-label">Sinopsis:</label>
+                                        <select name="plot" style="width: 100px;">
+                                            <option value="short" selected="">Short</option>
+                                            <option value="full">Full</option>
+                                        </select>
+                                        &nbsp;&nbsp;
+                                        <!--label class="control-label">Response:</label-->
+                                        <input name="r" style="width: 100px;" type="hidden" value="json">
+                                        &nbsp;&nbsp;
+                                        <button id="search-by-title-button" type="button" class="btn btn-primary">Buscar</button>
+                                    </div>
+                                    <div class="hide" id="search-by-title-request">
+                                        <br />
+                                        <p>Request:</p>
+                                        <pre class="alert alert-info"><a href="javascript:;" target="_blank"></a></pre>
+                                    </div>
+                                    <div id="search-by-title-progress" class="hide progress progress-info progress-striped active">
+                                        <div class="progress-bar" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                    <div class="hide" id="search-by-title-response">
+                                        <p>Response:</p>
+                                        <pre class="alert alert-success" style="margin-bottom: 0px; white-space: normal;"></pre>
+                                    </div>
+                                </form>                            
+                                <form class="well" id="search-by-id-form" onsubmit="return false;">
+                                    <div>
+                                        <label class="control-label" for="i">IMDB ID:</label>
+                                        <input type="text" id="i" name="i" class="input-small" placeholder="IMDb ID">
+                                        &nbsp;&nbsp;
+                                        <label class="control-label">Sinopsis:</label>
+                                        <select name="plot" style="width: 100px;">
+                                            <option value="short" selected="">Short</option>
+                                            <option value="full">Full</option>
+                                        </select>
+                                        &nbsp;&nbsp;
+                                        <!-- label class="control-label">Response:</label-->
+                                        <input name="r" style="width: 100px;" type="hidden" value="json">
+                                        &nbsp;&nbsp;
+                                        <button id="search-by-id-button" type="button" class="btn btn-primary">Buscar</button>
+                                    </div>
+                                    <div class="hide" id="search-by-id-request">
+                                        <br />
+                                        <p>Request:</p>
+                                        <pre class="alert alert-info"><a href="javascript:;" target="_blank"></a></pre>
+                                    </div>
+                                    <div id="search-by-id-progress" class="hide progress progress-info progress-striped active">
+                                        <div class="progress-bar" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                    <div class="hide" id="search-by-id-response">
+                                        <p>Response:</p>
+                                        <pre class="alert alert-success" style="margin-bottom: 0px; white-space: normal;"></pre>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 login-right">
+                        <h3>Agregar una pelicula a la base de datos</h3>
+                        <p>Llena los campos correspondientes</p>
                         <form>
                             <div>
-                                <span>Email Address<label>*</label></span>
-                                <input type="text">
+                                <span>Nombre:<label>*</label></span>
+                                <input id="movie-name" type="text">
                             </div>
                             <div>
-                                <span>Password<label>*</label></span>
-                                <input type="text">
+                                <span>Año<label>*</label></span>
+                                <input id="movie-year" type="text">
                             </div>
-                            <a class="forgot" href="#">Forgot Your Password?</a>
-                            <input type="submit" value="Login">
+                            <div>
+                                <span>Pais<label>*</label></span>
+                                <input id="movie-country" type="text">
+                            </div>
+                            <div>
+                                <span>Poster URL<label>*</label></span>
+                                <input id="movie-poster" type="text">
+                            </div>
+                            <div>
+                                <span>Video URL<label>*</label></span>
+                                <input id="movie-video" type="text">
+                            </div>
+                            <div>
+                                <span>Banner URL</span>
+                                <input id="movie-banner" type="text">
+                            </div>
+                            <div>
+                                <span>Sinopsis</span>
+                                <textarea id="movie-plot" cols="78" rows="5"> </textarea>
+                            </div>
+                            <input id="btn-agregar" type="submit" value="Agregar">
                         </form>
                     </div>
                     <div class="clearfix"> </div>
