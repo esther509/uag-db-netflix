@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
     <%- include('../partials/head.html', {title: title}) -%>
+    <script type="text/javascript" src="/javascripts/register.js"></script>
 </head>
 <body>
     <div class="container">
@@ -15,45 +16,48 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <%- include('../partials/header_top.html') -%>
             <div class="content">
                 <div class="register">
-                    <form>
+                    <form id="register-user-form">
                         <div class="register-top-grid">
                             <h3>Personal Information</h3>
                             <div>
-                                <span>First Name<label>*</label></span>
-                                <input type="text">
+                                <span>Nombre de usuario<label>*</label></span>
+                                <input id="input-username" name="username" type="text">
                             </div>
                             <div>
-                                <span>Last Name<label>*</label></span>
-                                <input type="text">
+                                <span>Nombre completo<label>*</label></span>
+                                <input name="fullname" type="text">
                             </div>
                             <div>
-                                <span>Email Address<label>*</label></span>
-                                <input type="text">
+                                <span>Email<label>*</label></span>
+                                <input name="email" type="text">
                             </div>
-                            <div class="clearfix"> </div>
+
                             <a class="news-letter" href="#">
-                                <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
+
                             </a>
                         </div>
                         <div class="register-bottom-grid">
                             <h3>Login Information</h3>
                             <div>
-                                <span>Password<label>*</label></span>
-                                <input type="text">
+                                <span>Contraseña<label>*</label></span>
+                                <input name="password" type="text">
                             </div>
                             <div>
-                                <span>Confirm Password<label>*</label></span>
-                                <input type="text">
+                                <span>Confirmar Contraseña<label>*</label></span>
+                                <input name="password_conf" type="text">
                             </div>
-                            <div class="clearfix"> </div>
+
+                        </div>
+
+                        <div class="login-right">
+                            <input id="register-button" type="submit" value="Registrarse">
                         </div>
                     </form>
-                    <div class="clearfix"> </div>
-                    <div class="register-but">
-                        <form>
-                            <input type="submit" value="submit">
-                            <div class="clearfix"> </div>
-                        </form>
+                    <br>
+                    <div class="hide" id="register-error">
+                        <div class="alert alert-danger">
+                            <strong>ERROR</strong> <span id="register-error-message"></span>
+                        </div>
                     </div>
                 </div>
             </div>

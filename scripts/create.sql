@@ -46,6 +46,7 @@ CREATE TABLE public.user (
    id SERIAL PRIMARY KEY,
    username TEXT NOT NULL,
    password TEXT NOT NULL,
+   full_name TEXT NOT NULL,
    email TEXT,
    user_type TEXT NOT NULL
 );
@@ -95,3 +96,7 @@ CREATE TABLE public.movie_award (
    category TEXT NOT NULL,
    PRIMARY KEY (movie_id, award_id)
 );
+
+
+INSERT INTO public.user (username, password, full_name, email, user_type) VALUES ('sergiowero', 'admin', 'Sergio Sanchez', 'sergioj.sanchezr@gmail.com', 'admin');
+INSERT INTO public.user (username, password, full_name, email, user_type) VALUES ('esther509', 'admin', 'Laura Lopez', 'esther_509@hotmail.com', 'admin');
