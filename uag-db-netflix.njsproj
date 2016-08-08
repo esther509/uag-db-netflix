@@ -32,6 +32,9 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="gulpfile.js" />
+    <Compile Include="public\javascripts\login.js" />
+    <Compile Include="public\javascripts\register.js" />
+    <Compile Include="public\javascripts\addmovie.js" />
     <Compile Include="routes\addmovie.js" />
     <Compile Include="routes\single.js" />
     <Compile Include="routes\register.js" />
@@ -39,9 +42,9 @@
     <Compile Include="routes\login.js" />
     <Compile Include="routes\index.js" />
     <Content Include=".gitignore" />
+    <Content Include="views\admin\addmovie.html" />
     <Content Include="views\pages\error.html" />
     <Content Include="views\pages\index.html" />
-    <Content Include="views\pages\addmovie.html" />
     <Content Include="views\pages\login.html" />
     <Content Include="views\pages\movie.html" />
     <Content Include="views\partials\footer.html" />
@@ -77,6 +80,7 @@
     <Folder Include="typings\globals\request\" />
     <Folder Include="typings\globals\serve-favicon\" />
     <Folder Include="views\" />
+    <Folder Include="views\admin\" />
     <Folder Include="views\partials\" />
     <Folder Include="views\pages\" />
   </ItemGroup>

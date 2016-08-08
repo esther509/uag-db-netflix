@@ -6,6 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var ejs = require('ejs');
 var app = express();
+var session = require('express-session')
 
 // Routes
 var index = require('./routes/index');
@@ -21,11 +22,12 @@ app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 
 // uncomment after placing your favicon in /public
-app.use(favicon(path.join(__dirname, 'public','images','favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({ secret: "databaseclass", saveUninitialized: true, resave: true }))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);

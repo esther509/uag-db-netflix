@@ -4,8 +4,12 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-	
-	res.render('pages/movie', { title: 'UAG Netflix' });
+    var sess = req.session;
+    var sessname = "";
+    if (sess.username) {
+        sessname = sess.username;
+    }
+    res.render('pages/movie', { title: 'UAG Netflix', username: sessname  });
 });
 
 module.exports = router;

@@ -11,41 +11,62 @@ var connectionString = process.env.DATABASE_URL || "postgres://Sergio:admin@loca
 
 /* GET home page. */
 router.get('/', function (req, res) {
-
-    res.render('pages/register', { title: 'UAG Netflix' });
+    var sess = req.session;
+    if (sess.username) {
+        res.render('pages/index', { title: 'UAG Netflix', username: sess.username });
+    } else {
+        res.render('pages/register', { title: 'UAG Netflix', username: "" });
+    }
+    
 });
 
 router.post('/new', function (req, res) {
     var data = req.body;
     console.log(data);
-    if (data.password != password_conf) {
+    if (data.password != data.password_conf) {
         res.json({ success: false, error: "La contraseña no coincide" });
         return;
     }
 
-    //if (!validator.isEmail(data.email)) {
-    //    res.json({ success: false, error: "El correo no es valido" });
-    //    return;
-    //}
+    if (!validator.isEmail(data.email)) {
+        res.json({ success: false, error: "El correo no es valido" });
+        return;
+    }
 
-    res.json({ success: true });
+    pg.connect(connectionString, function (err, client, done) {
 
-    //pg.connect(connectionString, function (err, client, done) {
+        var queryCheck = client.query("SELECT * FROM public.user WHERE username=$1 OR email=$2", [data.username, data.email]);
 
-    //    var query = client.query(
-    //        "INSERT INTO public.user(username, password, full_name, email, user_type) VALUES ('" +
-    //        data.username + "', '" + data.password + "', '" + data.fullname + "', '" + data.email + "', 'normal')");
+        queryCheck.on('error', function (err) {
+            done();
+            console.log(err);
+            res.json({ success: false, error: "SQL Error1:" + err });
+        });
 
-    //    query.on('error', function (err) {
-    //        done();
-    //        res.json({ success: false, error: err });
-    //    });
+        queryCheck.on('end', function (result) {
 
-    //    query.on('end', function (row) {
-    //        done();
-    //        res.json({ success: true });
-    //    });
-    //});
+            if (result.rowCount > 0) {
+                done();
+                res.json({ success: false, error: "User name or email already in use" });
+            } else {
+                var queryInsert = client.query(
+                    "INSERT INTO public.user(username, password, full_name, email, user_type) VALUES ($1, $2, $3, $4, 'normal')",
+                    [data.username, data.password, data.fullname, data.email]);
+
+                queryInsert.on('error', function (err) {
+                    done();
+                    console.log(err);
+                    res.json({ success: false, error: "SQL Error2:" + err });
+                });
+
+                queryInsert.on('end', function (row) {
+                    done();
+                    res.json({ success: true });
+                });
+            }
+
+        });
+    });
 
 });
 

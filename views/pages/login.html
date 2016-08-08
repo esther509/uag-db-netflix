@@ -8,6 +8,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
     <%- include('../partials/head.html', {title: title}) -%>
+    <script type="text/javascript" src="/javascripts/login.js"></script>
 </head>
 <body>
     <div class="container">
@@ -23,19 +24,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-md-6 login-right">
                         <h3>Registered Customers</h3>
                         <p>If you have an account with us, please log in.</p>
-                        <form>
+                        <form id="login-user-form">
                             <div>
-                                <span>Nombre de usuario: <label>*</label></span>
-                                <input type="text" value="<%= username %>">
+                                <span>Username: <label>*</label></span>
+                                <input id="login-username" type="text" value="<%= userhint %>">
                             </div>
                             <div>
                                 <span>Password<label>*</label></span>
-                                <input type="text">
+                                <input id="login-password" type="text">
                             </div>
                             <input type="submit" value="Acceder">
                         </form>
+                        <div class="hide" id="login-error">
+                            <div class="alert alert-danger">
+                                <strong>ERROR</strong> <span id="login-error-message"></span>
+                            </div>
+                        </div>
                     </div>
                     <div class="clearfix"> </div>
+                    <br>
+
                 </div>
             </div>
         </div>

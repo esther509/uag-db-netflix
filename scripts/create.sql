@@ -44,10 +44,10 @@ CREATE TABLE public.acts_in (
 
 CREATE TABLE public.user (
    id SERIAL PRIMARY KEY,
-   username TEXT NOT NULL,
+   username TEXT NOT NULL UNIQUE,
    password TEXT NOT NULL,
    full_name TEXT NOT NULL,
-   email TEXT,
+   email TEXT UNIQUE NOT NULL,
    user_type TEXT NOT NULL
 );
 
