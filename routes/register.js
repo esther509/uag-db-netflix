@@ -3,6 +3,7 @@ var http = require('http');
 var router = express.Router();
 var pg = require('pg');
 var validator = require("validator");
+var helper = require("../modules/pageshelper");
 
 if (process.env.DATABASE_URL) {
     pg.defaults.ssl = true;
@@ -10,13 +11,8 @@ if (process.env.DATABASE_URL) {
 var connectionString = process.env.DATABASE_URL || "postgres://Sergio:admin@localhost:5432/uag-db-netflix";
 
 /* GET home page. */
-router.get('/', function (req, res) {
-    var sess = req.session;
-    var sessname = "";
-    if (sess.username) {
-        sessname = sess.username;
-    }
-    res.render('pages/register', { title: 'UAG Netflix', username: sessname });
+router.get('/', function (req, res) {  
+    res.render('pages/register', helper.createRenderParams(req.session));
 });
 
 router.post('/new', function (req, res) {

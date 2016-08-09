@@ -1,15 +1,11 @@
 ﻿var express = require('express');
 var http = require('http');
+var helper = require("../modules/pageshelper");
 var router = express.Router();
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    var sess = req.session;
-    var sessname = "";
-    if (sess.username) {
-        sessname = sess.username;
-    }
-    res.render('pages/movie', { title: 'UAG Netflix', username: sessname  });
+    res.render('pages/movie', helper.createRenderParams(req.session));
 });
 
 module.exports = router;

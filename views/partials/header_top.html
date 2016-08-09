@@ -5,7 +5,9 @@
             <!--<li><span class="simptip-position-bottom simptip-movable" data-tooltip="home"><a href="/movie"> </a></span></li>-->
             <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movies"><a href="/movie"> </a> </span></li>
             <li><span class="simptip-position-bottom simptip-movable" data-tooltip="video"><a href="/movie"> </a></span></li>
-            <li><span class="simptip-position-bottom simptip-movable" data-tooltip="admin"><a href="/movie"> </a></span></li>
+            <% if(usertype == "admin") { %>
+            <li><span class="simptip-position-bottom simptip-movable" data-tooltip="admin"><a href="/admin/addmovie"> </a></span></li>
+            <% } %>
             <!--<li><span class="simptip-position-bottom simptip-movable" data-tooltip="tv"><a href="/movie"> </a></span></li>-->
             <!--<li><span class="simptip-position-bottom simptip-movable" data-tooltip="more"><a href="/admin/addmovie"> </a></span></li>-->
         </ul>

@@ -1,5 +1,6 @@
 ﻿var express = require('express');
 var http = require('http');
+var helper = require("../modules/pageshelper");
 var router = express.Router();
 
 var pg = require('pg');
@@ -11,22 +12,11 @@ var connectionString = process.env.DATABASE_URL || "postgres://Sergio:admin@loca
 
 /* GET home page. */
 router.get('/', function (req, res) {
-    var sess = req.session;
-    var sessname = "";
-    if (sess.username) {
-        sessname = sess.username;
-    }
-    res.render('pages/login', { title: 'UAG Netflix', userhint: "", username: sessname });
+    res.render('pages/login', helper.createRenderParams(req.session, {userhint: ""}));
 });
 
 router.get('/:username', function (req, res) {
-    var username = req.params.username;
-    var sess = req.session;
-    var sessname = "";
-    if (sess.username) {
-        sessname = sess.username;
-    }
-    res.render('pages/login', { title: 'UAG Netflix', userhint: username, username: sessname });
+    res.render('pages/login', helper.createRenderParams(req.session, { userhint: username }));
 });
 
 router.post('/', function (req, res) {
@@ -53,6 +43,7 @@ router.post('/', function (req, res) {
             done();
             if (result.rowCount > 0) {
                 req.session.username = result.rows[0].username;
+                req.session.type = result.rows[0].user_type;
                 req.session.save();
                 res.json({ success: true });
             } else {

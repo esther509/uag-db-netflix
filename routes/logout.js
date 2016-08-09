@@ -1,5 +1,6 @@
 ﻿var express = require('express');
 var http = require('http');
+var helper = require("../modules/pageshelper");
 var router = express.Router();
 
 
@@ -7,8 +8,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function (req, res) {
     req.session.destroy();
-    console.log(req.session);
-    res.render('pages/logout', { title: 'UAG Netflix', userhint: "", username: "" });
+    res.render('pages/logout', helper.createRenderParams(req.session));
 });
 
 module.exports = router;
