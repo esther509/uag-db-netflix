@@ -12,12 +12,11 @@ var connectionString = process.env.DATABASE_URL || "postgres://Sergio:admin@loca
 /* GET home page. */
 router.get('/', function (req, res) {
     var sess = req.session;
+    var sessname = "";
     if (sess.username) {
-        res.render('pages/index', { title: 'UAG Netflix', username: sess.username });
-    } else {
-        res.render('pages/register', { title: 'UAG Netflix', username: "" });
+        sessname = sess.username;
     }
-    
+    res.render('pages/register', { title: 'UAG Netflix', username: sessname });
 });
 
 router.post('/new', function (req, res) {

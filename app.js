@@ -11,6 +11,7 @@ var session = require('express-session')
 // Routes
 var index = require('./routes/index');
 var login = require('./routes/login');
+var logout = require('./routes/logout');
 var movie = require('./routes/movie');
 var register = require('./routes/register');
 var single = require('./routes/single');
@@ -27,11 +28,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(session({ secret: "databaseclass", saveUninitialized: true, resave: true }))
+app.use(session({ secret: "databaseclass", saveUninitialized: true, resave: true, unset: 'destroy' }))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/login', login);
+app.use('/logout', logout);
 app.use('/movie', movie);
 app.use('/register', register);
 app.use('/single', single);

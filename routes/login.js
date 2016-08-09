@@ -1,5 +1,4 @@
 ﻿var express = require('express');
-var express = require('express');
 var http = require('http');
 var router = express.Router();
 
@@ -13,22 +12,21 @@ var connectionString = process.env.DATABASE_URL || "postgres://Sergio:admin@loca
 /* GET home page. */
 router.get('/', function (req, res) {
     var sess = req.session;
+    var sessname = "";
     if (sess.username) {
-        res.render('pages/index', { title: 'UAG Netflix', username: sess.username });
-    } else {
-        res.render('pages/login', { title: 'UAG Netflix', userhint: "", username: "" });
+        sessname = sess.username;
     }
+    res.render('pages/login', { title: 'UAG Netflix', userhint: "", username: sessname });
 });
 
 router.get('/:username', function (req, res) {
     var username = req.params.username;
     var sess = req.session;
+    var sessname = "";
     if (sess.username) {
-        res.render('pages/index', { title: 'UAG Netflix', username: sess.username });
-    } else {
-        res.render('pages/login', { title: 'UAG Netflix', userhint: username, username: "" });
+        sessname = sess.username;
     }
-
+    res.render('pages/login', { title: 'UAG Netflix', userhint: username, username: sessname });
 });
 
 router.post('/', function (req, res) {
@@ -63,13 +61,7 @@ router.post('/', function (req, res) {
 
         });
     });
-
-    router.post('/logout', function (req, res) {
-        req.session.detroy();
-        res.redirect('/');
-    });
-
+   
 });
-
 
 module.exports = router;

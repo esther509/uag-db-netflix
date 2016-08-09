@@ -9,6 +9,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
     <%- include('../partials/head.html', {title: title}) -%>
     <script type="text/javascript" src="/javascripts/register.js"></script>
+    <% if(username != "")  { %>
+    <script type="text/javascript">
+        window.location.assign("/");
+    </script>
+    <% } %>
 </head>
 <body>
     <div class="container">

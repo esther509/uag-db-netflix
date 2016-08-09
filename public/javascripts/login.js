@@ -16,7 +16,7 @@
                 if (a.success) {
                     $('#login-error').hide();
                     //console.log($('#input-username'));
-                    window.location.assign("/")
+                    window.location.assign("/");
                 } else {
                     $('#login-error').removeClass('hide');
                     $('#login-error-message').html(a.error);
