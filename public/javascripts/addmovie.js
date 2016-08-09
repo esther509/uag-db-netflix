@@ -37,7 +37,7 @@
                 //g.show('slow');
                 //g.removeClass('hide');
             }
-        })
+        });
     });
     $('#search-by-title-button').click(function () {
         var c = $('#search-by-title-form').serialize();
@@ -77,5 +77,33 @@
                 //g.removeClass('hide');
             }
         })
+    });
+    $('#add-movie-form').submit(function (event) {
+        event.preventDefault();
+        var data = $(this).serialize();
+
+        var error = $('#add-movie-error');
+        var errorMsg = $('#add-movie-error-message');
+        var success = $('#add-movie-success');
+
+        $.ajax({
+            type: 'POST',
+            dataType: 'json',
+            url: '/admin/addmovie/add',
+            data: data,
+            success: function (a) {
+                if (a.success) {
+                    success.removeClass('hide');
+                    error.addClass('hide');
+                } else {
+                    error.removeClass('hide');
+                    success.addClass('hide');
+                    errorMsg.html(a.error);
+                }
+            },
+            complete: function () {
+                
+            }
+        });
     });
 });

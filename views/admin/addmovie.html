@@ -9,6 +9,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <head>
     <%- include('../partials/head.html', {title: title}) -%>
     <script type="text/javascript" src="/javascripts/addmovie.js"></script>
+    <% if(username == "")  { %>
+    <script type="text/javascript">
+        window.location.assign("/");
+    </script>
+    <% } %>
 </head>
 <body>
     <div class="container">
@@ -89,37 +94,47 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-md-8 login-right">
                         <h3>Agregar una pelicula a la base de datos</h3>
                         <p>Llena los campos correspondientes</p>
-                        <form>
+                        <form id="add-movie-form">
                             <div>
                                 <span>Nombre:<label>*</label></span>
-                                <input id="movie-name" type="text">
+                                <input id="movie-name" name="name" type="text">
                             </div>
                             <div>
                                 <span>Año<label>*</label></span>
-                                <input id="movie-year" type="text">
+                                <input id="movie-year" name="year" type="text">
                             </div>
                             <div>
                                 <span>Pais<label>*</label></span>
-                                <input id="movie-country" type="text">
+                                <input id="movie-country" name="country" type="text">
                             </div>
                             <div>
                                 <span>Poster URL<label>*</label></span>
-                                <input id="movie-poster" type="text">
+                                <input id="movie-poster"  name="poster" type="text">
                             </div>
                             <div>
                                 <span>Video URL<label>*</label></span>
-                                <input id="movie-video" type="text">
+                                <input id="movie-video" name="video" type="text">
                             </div>
                             <div>
                                 <span>Banner URL</span>
-                                <input id="movie-banner" type="text">
+                                <input id="movie-banner" name="banner" type="text">
                             </div>
                             <div>
                                 <span>Sinopsis</span>
-                                <textarea id="movie-plot" cols="78" rows="5"> </textarea>
+                                <textarea id="movie-plot" cols="78" rows="5" name="plot"> </textarea>
                             </div>
                             <input id="btn-agregar" type="submit" value="Agregar">
                         </form>
+                        <div class="hide" id="add-movie-error">
+                            <div class="alert alert-danger">
+                                <strong>ERROR: </strong><span id="add-movie-error-message"></span>
+                            </div>
+                        </div>
+                        <div class="hide" id="add-movie-success">
+                            <div class="alert alert-success">
+                                <strong>SUCCESS</strong>
+                            </div>
+                        </div>
                     </div>
                     <div class="clearfix"> </div>
                 </div>
