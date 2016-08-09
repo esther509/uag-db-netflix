@@ -32,10 +32,12 @@
   <ItemGroup>
     <Compile Include="app.js" />
     <Compile Include="gulpfile.js" />
+    <Compile Include="modules\pageshelper.js" />
     <Compile Include="public\javascripts\login.js" />
     <Compile Include="public\javascripts\register.js" />
     <Compile Include="public\javascripts\addmovie.js" />
     <Compile Include="routes\addmovie.js" />
+    <Compile Include="routes\logout.js" />
     <Compile Include="routes\single.js" />
     <Compile Include="routes\register.js" />
     <Compile Include="routes\movie.js" />
@@ -45,6 +47,7 @@
     <Content Include="views\admin\addmovie.html" />
     <Content Include="views\pages\error.html" />
     <Content Include="views\pages\index.html" />
+    <Content Include="views\pages\logout.html" />
     <Content Include="views\pages\login.html" />
     <Content Include="views\pages\movie.html" />
     <Content Include="views\partials\footer.html" />
@@ -60,6 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="bin\" />
+    <Folder Include="modules\" />
     <Folder Include="public\" />
     <Folder Include="public\fonts\" />
     <Folder Include="public\images\" />
