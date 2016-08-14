@@ -13,14 +13,21 @@
         </ul>
     </div>
     <div class="col-sm-4">
-        <div class="container-fluid">
+        <!--<div class="container-fluid">
             <form class="navbar-form" method="get" action="/search" style="margin-top:-3px">
                 <div class="input-group">
                     <input type="text" class="form-control" name="q" placeholder="Search for...">
                     <span class="input-group-btn">
                         <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                     </span>
-                </div><!-- /input-group --> 
+                </div> 
+            </form>
+            
+        </div>-->
+        <div class="search">
+            <form method="get" action="/search">
+                <input type="text" value="Search..." name="q" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
+                <input type="submit" value="">
             </form>
         </div>
     </div>

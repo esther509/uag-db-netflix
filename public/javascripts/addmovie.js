@@ -38,6 +38,8 @@
                     $("#movie-awards").attr("value", res.Awards);
                     $("#movie-metascore").attr("value", res.Metascore);
                     $("#movie-imdb").attr("value", res.imdbID);
+                    $("#movie-video").attr("value", "");
+                    $("#movie-banner").attr("value", "");
                 }
             },
             complete: function () {
@@ -85,6 +87,8 @@
                     $("#movie-awards").attr("value", res.Awards);
                     $("#movie-metascore").attr("value", res.Metascore);
                     $("#movie-imdb").attr("value", res.imdbID);
+                    $("#movie-video").attr("value", "");
+                    $("#movie-banner").attr("value", "");
                 }
             },
             complete: function () {
