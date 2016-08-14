@@ -30,6 +30,14 @@
                     $("#movie-country").attr("value", res.Country);
                     $("#movie-poster").attr("value", res.Poster);
                     $("#movie-plot").attr("value", res.Plot).html(res.Plot);
+                    $("#movie-release").attr("value", res.Released);
+                    $("#movie-categories").attr("value", res.Genre);
+                    $("#movie-directors").attr("value", res.Director);
+                    $("#movie-actors").attr("value", res.Actors);
+                    $("#movie-lang").attr("value", res.Language);
+                    $("#movie-awards").attr("value", res.Awards);
+                    $("#movie-metascore").attr("value", res.Metascore);
+                    $("#movie-imdb").attr("value", res.imdbID);
                 }
             },
             complete: function () {
@@ -69,6 +77,14 @@
                     $("#movie-country").attr("value", res.Country);
                     $("#movie-poster").attr("value", res.Poster);
                     $("#movie-plot").attr("value", res.Plot).html(res.Plot);
+                    $("#movie-release").attr("value", res.Released);
+                    $("#movie-categories").attr("value", res.Genre);
+                    $("#movie-directors").attr("value", res.Director);
+                    $("#movie-actors").attr("value", res.Actors);
+                    $("#movie-lang").attr("value", res.Language);
+                    $("#movie-awards").attr("value", res.Awards);
+                    $("#movie-metascore").attr("value", res.Metascore);
+                    $("#movie-imdb").attr("value", res.imdbID);
                 }
             },
             complete: function () {

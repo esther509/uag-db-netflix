@@ -13,20 +13,24 @@ DROP TABLE IF EXISTS public.category;
 
 CREATE TABLE public.movie (
    id SERIAL PRIMARY KEY,
-   name TEXT NOT NULL,
+   name TEXT UNIQUE,
    year INT CHECK (year > 1900),
    country TEXT,
    bannerUrl TEXT,
    posterUrl TEXT,
    videoUrl TEXT,
-   releaseDate DATE,
-   updateDate DATE,
-   plot TEXT
+   releaseDate text,
+   updateDate text,
+   plot TEXT,
+   imdbid text,
+   metascore text,
+   lang text,
+   awards text
 );
 
 CREATE TABLE public.director (
    id SERIAL PRIMARY KEY,
-   name TEXT NOT NULL
+   name TEXT UNIQUE
 );
 
 CREATE TABLE public.directed_by (
@@ -76,7 +80,7 @@ CREATE TABLE public.commented_by (
 
 CREATE TABLE public.category (
    id  SERIAL PRIMARY KEY,
-   name TEXT NOT NULL
+   name TEXT UNIQUE
 );
 
 CREATE TABLE public.movie_category (

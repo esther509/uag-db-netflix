@@ -33,10 +33,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <input type="text" id="y" name="y" class="input-small" style="width: 100px;">
                                         &nbsp;&nbsp;
                                         <label class="control-label">Sinopsis:</label>
-                                        <select name="plot" style="width: 100px;">
+                                        <!--<select name="plot" style="width: 100px;">
                                             <option value="short" selected="">Short</option>
                                             <option value="full">Full</option>
-                                        </select>
+                                        </select>-->
+                                        <input name="plot" style="width: 100px;" type="hidden" value="full">
                                         &nbsp;&nbsp;
                                         <!--label class="control-label">Response:</label-->
                                         <input name="r" style="width: 100px;" type="hidden" value="json">
@@ -56,17 +57,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <p>Response:</p>
                                         <pre class="alert alert-success" style="margin-bottom: 0px; white-space: normal;"></pre>
                                     </div>
-                                </form>                            
+                                </form>
                                 <form class="well" id="search-by-id-form" onsubmit="return false;">
                                     <div>
                                         <label class="control-label" for="i">IMDB ID:</label>
                                         <input type="text" id="i" name="i" class="input-small" placeholder="IMDb ID">
                                         &nbsp;&nbsp;
                                         <label class="control-label">Sinopsis:</label>
-                                        <select name="plot" style="width: 100px;">
+                                        <!--<select name="plot" style="width: 100px;">
                                             <option value="short" selected="">Short</option>
                                             <option value="full">Full</option>
-                                        </select>
+                                        </select>-->
+                                        <input name="plot" style="width: 100px;" type="hidden" value="full">
                                         &nbsp;&nbsp;
                                         <!-- label class="control-label">Response:</label-->
                                         <input name="r" style="width: 100px;" type="hidden" value="json">
@@ -100,8 +102,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <input id="movie-name" name="name" type="text">
                             </div>
                             <div>
-                                <span>Año<label>*</label></span>
+                                <span>Director:<label>*</label></span>
+                                <input id="movie-directors" name="directors" type="text">
+                            </div>
+                            <div>
+                                <span>Year<label>*</label></span>
                                 <input id="movie-year" name="year" type="text">
+                            </div>
+                            <div>
+                                <span>Released<label>*</label></span>
+                                <input id="movie-release" name="release" type="text">
                             </div>
                             <div>
                                 <span>Pais<label>*</label></span>
@@ -109,7 +119,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                             <div>
                                 <span>Poster URL<label>*</label></span>
-                                <input id="movie-poster"  name="poster" type="text">
+                                <input id="movie-poster" name="poster" type="text">
                             </div>
                             <div>
                                 <span>Video URL<label>*</label></span>
@@ -118,6 +128,30 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div>
                                 <span>Banner URL</span>
                                 <input id="movie-banner" name="banner" type="text">
+                            </div>
+                            <div>
+                                <span>Actors</span>
+                                <input id="movie-actors" name="actors" type="text">
+                            </div>
+                            <div>
+                                <span>IMDB ID:<label>*</label></span>
+                                <input id="movie-imdb" name="imdb" type="text">
+                            </div>
+                            <div>
+                                <span>Categories:<label>*</label></span>
+                                <input id="movie-categories" name="categories" type="text">
+                            </div>
+                            <div>
+                                <span>Awards:<label>*</label></span>
+                                <input id="movie-awards" name="awards" type="text">
+                            </div>
+                            <div>
+                                <span>Metascore:<label>*</label></span>
+                                <input id="movie-metascore" name="metascore" type="text">
+                            </div>
+                            <div>
+                                <span>Language:<label>*</label></span>
+                                <input id="movie-lang" name="lang" type="text">
                             </div>
                             <div>
                                 <span>Sinopsis</span>

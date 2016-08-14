@@ -8,6 +8,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html>
 <head>
     <%- include('../partials/head.html', {title: title}) -%>
+    <!--<% if(typeof movie === 'undefined')  { %>
+    <script type="text/javascript">
+        window.location.assign("/");
+    </script>
+    <% } %>-->
 </head>
 <body>
     <div class="container">
@@ -18,10 +23,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-md-9 movie_box">
                         <div class="grid images_3_of_2">
                             <div class="movie_image">
-                                <span class="movie_rating">5.0</span>
-                                <img src="images/single.jpg" class="img-responsive" alt="" />
+                                <!--<span class="movie_rating">5.0</span>-->
+                                <img src="<%= movie.posterurl %>" class="img-responsive" alt="" />
                             </div>
-                            <div class="movie_rate">
+                            <!--<div class="movie_rate">
                                 <div class="rating_desc"><p>Your Vote :</p></div>
                                 <form action="" class="sky-form">
                                     <fieldset>
@@ -42,21 +47,24 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </fieldset>
                                 </form>
                                 <div class="clearfix"> </div>
-                            </div>
+                            </div>-->
                         </div>
                         <div class="desc1 span_3_of_2">
-                            <p class="movie_option"><strong>Country: </strong><a href="#">established</a>, <a href="#">USA</a></p>
-                            <p class="movie_option"><strong>Year: </strong>2014</p>
-                            <p class="movie_option"><strong>Category: </strong><a href="#">Adventure</a>, <a href="#">Fantazy</a></p>
-                            <p class="movie_option"><strong>Release date: </strong>December 12, 2014</p>
-                            <p class="movie_option"><strong>Director: </strong><a href="#">suffered </a></p>
-                            <p class="movie_option"><strong>Actors: </strong><a href="#">anything</a>, <a href="#">Lorem Ipsum</a>, <a href="#" discovered</a>, <a href="#"> Virginia</a>, <a href="#"> Virginia</a>, <a href="#">variations</a>, <a href="#">variations</a>, <a href="#">variations</a>, <a href="#"> Virginia</a> <a href="#">...</a></p>
-                            <p class="movie_option"><strong>Age restriction: </strong>13</p>
-                            <div class="down_btn"><a class="btn1" href="#"><span> </span>Download</a></div>
+                            <p class="movie_option"><strong>Country: </strong><span><%= movie.country %></span> <!--<a href="#">established</a>, <a href="#">USA</a>--></p>
+                            <p class="movie_option"><strong>Year: </strong><%= movie.year %></p>
+                            <p class="movie_option"><strong>Category: </strong><%= movie.category %><!--<a href="#">Adventure</a>, <a href="#">Fantazy</a>--></p>
+                            <p class="movie_option"><strong>Release date: </strong><%= movie.releasedate %></p>
+                            <p class="movie_option"><strong>Director: </strong><%= movie.directorname %><!--<a href="#">suffered </a>--></p>
+                            <p class="movie_option"><strong>Actors: </strong><%= movie.actors %><!--<a href="#">anything</a>, <a href="#">Lorem Ipsum</a>, <a href="#" discovered</a>, <a href="#"> Virginia</a>, <a href="#"> Virginia</a>, <a href="#">variations</a>, <a href="#">variations</a>, <a href="#">variations</a>, <a href="#"> Virginia</a> <a href="#">...</a>--></p>
+                            <!--<p class="movie_option"><strong>Age restriction: </strong>13</p>-->
+                            <!--<div class="down_btn"><a class="btn1" href="#"><span> </span>Download</a></div>--> 
                         </div>
                         <div class="clearfix"> </div>
-                        <p class="m_4">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.</p>
-                        <form method="post" action="/contact-post">
+                        <p class="m_4"><%= movie.plot %></p>
+                        <div class="col-md-12" style="text-align:center">
+                            <iframe width="560" height="315" src="<%= movie.videourl %>" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <!--<form method="post" action="/contact-post">
                             <div class="to">
                                 <input type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
                                 <input type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left:3%">
@@ -121,39 +129,39 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <div class="clearfix"></div>
                                 </li>
                             </ul>
-                        </div>
+                        </div>-->
                     </div>
-                    <div class="col-md-3">
-                        <div class="movie_img">
+                    <div class="col-md-2 col-md-offset-1">
+                        <div class="movie_img" >
                             <div class="grid_2">
-                                <img src="images/pic6.jpg" class="img-responsive" alt="">
+                                <img  src="http://ia.media-imdb.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg" class="img-responsive" alt="">
                                 <div class="caption1">
-                                    <ul class="list_5 list_7">
+                                    <!--<ul class="list_5 list_7">
                                         <li><i class="icon5"> </i><p>3,548</p></li>
                                     </ul>
-                                    <i class="icon4 icon6 icon7"> </i>
-                                    <p class="m_3">Guardians of the Galaxy</p>
+                                    <i class="icon4 icon6 icon7"> </i>-->
+                                    <p class="m_3">Batman</p>
                                 </div>
                             </div>
                         </div>
                         <div class="grid_2 col_1">
-                            <img src="images/pic2.jpg" class="img-responsive" alt="">
+                            <img src="http://ia.media-imdb.com/images/M/MV5BMWQ2YzkyNTUtNDc5NS00OGYxLThhYTItOWUyNDI1ZWQxM2JkXkEyXkFqcGdeQXVyNjUwNzk3NDc@._V1_SX300.jpg" class="img-responsive" alt="">
                             <div class="caption1">
-                                <ul class="list_3 list_7">
+                                <!--<ul class="list_3 list_7">
                                     <li><i class="icon5"> </i><p>3,548</p></li>
                                 </ul>
-                                <i class="icon4 icon7"> </i>
+                                <i class="icon4 icon7"> </i>-->
                                 <p class="m_3">Guardians of the Galaxy</p>
                             </div>
                         </div>
                         <div class="grid_2 col_1">
-                            <img src="images/pic9.jpg" class="img-responsive" alt="">
+                            <img src="http://ia.media-imdb.com/images/M/MV5BMTQxNzUxNTE4Nl5BMl5BanBnXkFtZTYwMjcyNTk5._V1_SX300.jpg" class="img-responsive" alt="">
                             <div class="caption1">
-                                <ul class="list_3 list_7">
+                                <!--<ul class="list_3 list_7">
                                     <li><i class="icon5"> </i><p>3,548</p></li>
                                 </ul>
-                                <i class="icon4 icon7"> </i>
-                                <p class="m_3">Guardians of the Galaxy</p>
+                                <i class="icon4 icon7"> </i>-->
+                                <p class="m_3">Hulk</p>
                             </div>
                         </div>
                     </div>
