@@ -2,7 +2,7 @@
 
     $('#search-by-id-button').click(function () {
         var c = $('#search-by-id-form').serialize();
-        var d = 'http://www.omdbapi.com/?' + c;
+        var d = 'https://www.omdbapi.com/?' + c;
         var e = $('#search-by-id-request');
         e.find('a').attr('href', d).html(d);
         e.show('slow');
@@ -14,7 +14,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'text',
-            url: 'http://www.omdbapi.com/?' + c,
+            url: 'https://www.omdbapi.com/?' + c,
             statusCode: {
                 403: function () {
                     //g.find('pre').html('HTTP 403 Forbidden!')
@@ -49,7 +49,7 @@
     });
     $('#search-by-title-button').click(function () {
         var c = $('#search-by-title-form').serialize();
-        var d = 'http://www.omdbapi.com/?' + c;
+        var d = 'https://www.omdbapi.com/?' + c;
         var e = $('#search-by-title-request');
         e.find('a').attr('href', d).html(d);
         e.show('slow');
@@ -61,7 +61,7 @@
         $.ajax({
             type: 'GET',
             dataType: 'text',
-            url: 'http://www.omdbapi.com/?' + c,
+            url: 'https://www.omdbapi.com/?' + c,
             statusCode: {
                 403: function () {
                     g.find('pre').html('HTTP 403 Forbidden!')
