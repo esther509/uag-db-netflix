@@ -1,6 +1,6 @@
 ﻿<div class="header_top">
-    <div class="col-sm-4 logo"><a href="/"><img src="/images/logo.jpeg" alt="" /></a></div>
-    <div class="col-sm-4 nav">
+    <div class="col-sm-2 logo"><a href="/"><img src="/images/logo.jpeg" alt="" /></a></div>
+    <div class="col-sm-2 nav">
         <ul>
             <!--<li><span class="simptip-position-bottom simptip-movable" data-tooltip="home"><a href="/movie"> </a></span></li>-->
             <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movies"><a href="/movie"> </a> </span></li>
@@ -11,6 +11,18 @@
             <!--<li><span class="simptip-position-bottom simptip-movable" data-tooltip="tv"><a href="/movie"> </a></span></li>-->
             <!--<li><span class="simptip-position-bottom simptip-movable" data-tooltip="more"><a href="/admin/addmovie"> </a></span></li>-->
         </ul>
+    </div>
+    <div class="col-sm-4">
+        <div class="container-fluid">
+            <form class="navbar-form" method="get" action="/search" style="margin-top:-3px">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="q" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-danger" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                    </span>
+                </div><!-- /input-group --> 
+            </form>
+        </div>
     </div>
     <div class="col-sm-4 header_right">
         <ul class="header_right_box">

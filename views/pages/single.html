@@ -23,7 +23,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-md-9 movie_box">
                         <div class="grid images_3_of_2">
                             <div class="movie_image">
-                                <!--<span class="movie_rating">5.0</span>-->
+                                <% if(movie.metascore !== 'N/A' && movie.metascore != "")  { %>
+                                <span class="movie_rating"><%= movie.metascore %></span>
+                                <% } %>
                                 <img src="<%= movie.posterurl %>" class="img-responsive" alt="" />
                             </div>
                             <!--<div class="movie_rate">
