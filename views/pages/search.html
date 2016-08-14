@@ -51,14 +51,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <% } %>
                     <div>
                         <div class="col-md-2 m_5">
-                            <a href="/single/<%= results[i].id %>">
+                            <a href="/single/<%= results[i].movieid %>">
                                 <img width="150" height="225" class="img-responsive" src="<%= results[i].posterurl %>" onerror="this.src='/images/image_placeholder.png';" />
                             </a>
 
                         </div>
                         <div class="col_2 col-md-2">
                             <ul class="list_4">
-                                <li><a href="/single/<%= results[i].id %>"><%= results[i].name %></a></li>
+                                <li><a href="/single/<%= results[i].movieid %>"><%= results[i].name %></a></li>
                                 <li>Director &nbsp;&nbsp; </li>
                                 <li><span class="m_4"><%= results[i].directors %></span> </li>
                                 <li>Release &nbsp;&nbsp; </li>
