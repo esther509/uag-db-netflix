@@ -1,6 +1,6 @@
 ﻿
 
-exports.createRenderParams = function (session, extras={}) {
+exports.createRenderParams=function(session, extras={}) {
     var sessname = "";
     if (session && session.username) {
         sessname = session.username;
