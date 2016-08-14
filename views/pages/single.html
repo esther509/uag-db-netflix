@@ -52,17 +52,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <div class="desc1 span_3_of_2">
                             <p class="movie_option"><strong>Country: </strong><span><%= movie.country %></span> <!--<a href="#">established</a>, <a href="#">USA</a>--></p>
                             <p class="movie_option"><strong>Year: </strong><%= movie.year %></p>
-                            <p class="movie_option"><strong>Category: </strong><%= movie.category %><!--<a href="#">Adventure</a>, <a href="#">Fantazy</a>--></p>
+                            <p class="movie_option"><strong>Category: </strong><%= movie.categories %><!--<a href="#">Adventure</a>, <a href="#">Fantazy</a>--></p>
                             <p class="movie_option"><strong>Release date: </strong><%= movie.releasedate %></p>
                             <p class="movie_option"><strong>Director: </strong><%= movie.directorname %><!--<a href="#">suffered </a>--></p>
                             <p class="movie_option"><strong>Actors: </strong><%= movie.actors %><!--<a href="#">anything</a>, <a href="#">Lorem Ipsum</a>, <a href="#" discovered</a>, <a href="#"> Virginia</a>, <a href="#"> Virginia</a>, <a href="#">variations</a>, <a href="#">variations</a>, <a href="#">variations</a>, <a href="#"> Virginia</a> <a href="#">...</a>--></p>
-                            <!--<p class="movie_option"><strong>Age restriction: </strong>13</p>-->
-                            <!--<div class="down_btn"><a class="btn1" href="#"><span> </span>Download</a></div>--> 
-                        </div>
+                            <p class="movie_option"><strong>Awards: </strong><%= movie.awards %></p>
+                                <!--<p class="movie_option"><strong>Age restriction: </strong>13</p>-->
+                                <!--<div class="down_btn"><a class="btn1" href="#"><span> </span>Download</a></div>-->
+</div>
                         <div class="clearfix"> </div>
                         <p class="m_4"><%= movie.plot %></p>
                         <div class="col-md-12" style="text-align:center">
-                            <iframe width="560" height="315" src="<%= movie.videourl %>" frameborder="0" allowfullscreen></iframe>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= movie.videourl %>" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <!--<form method="post" action="/contact-post">
                             <div class="to">

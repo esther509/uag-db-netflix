@@ -19,8 +19,13 @@ router.get('/:movieid', function (req, res) {
 
     pg.connect(connectionString, function (err, client, done) {
 
-        var query = client.query("SELECT movie.name as moviename, country, year, posterurl, videourl, releasedate, plot, director.name as directorname" +
-             " FROM director INNER JOIN (movie INNER JOIN directed_by ON movie.id = directed_by.movie_id) ON director.id = directed_by.director_id  WHERE public.movie.id = $1", [movieid]);
+        var query = client.query("SELECT movie.id as movieid, movie.name as moviename, country, year, posterurl, videourl, releasedate, plot, director.name as directorname, awards, " +
+            " (SELECT string_agg(actor_name, ', ') from acts_in INNER JOIN movie ON id= movie_id WHERE movie.id = $1) as actors, " +
+            " (SELECT string_agg(category.name, ', ') from movie_category, category, movie WHERE movie.id = $1 AND movie.id = movie_id AND category.id = category_id) as categories " +
+            " FROM director INNER JOIN " +
+            " (movie INNER JOIN directed_by ON movie.id = directed_by.movie_id) " +
+            " ON director.id = directed_by.director_id " +
+            " WHERE public.movie.id = $1", [movieid]);
 
         query.on('error', function (err) {
             done();
