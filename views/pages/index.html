@@ -66,11 +66,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </div>
             <div class="content">
                 <div class="box_1">
-                    <h1 class="m_2">Featurd Movies</h1>
+                    <h1 class="m_2">Advanced Search</h1>
                     <div class="search">
-                        <form method="get" action="/search">
-                            <input type="text" value="Search..." name="q" onfocus="this.value='';" onblur="if (this.value == '') {this.value ='';}">
-                            <input type="submit" value="">
+                        <form class="form-inline" method="get" action="/search">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <input type="text" placeholder="Title" name="t">
+                                </div>
+                                <div class="col-md-3">
+                                    <input type="text" placeholder="Director" name="d" >
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" placeholder="Country" name="c">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" placeholder="Year" name="y">
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="text" placeholder="Category" name="g">
+                                </div>
+                                <input type="submit" value="">
+                            </div>
                         </form>
                     </div>
                     <div class="clearfix"> </div>
@@ -81,7 +97,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="col-md-6 grid_4">
                                 <a href="/single/<%= movies[0].id %>">
                                     <div class="grid_2">
-                                        <img src="<%= movies[0].posterurl %>" class="img-responsive" alt="" />
+                                        <img src="<%= movies[0].posterurl %>" class="img-responsive" alt="" onerror="this.src='/images/image_placeholder.png';"/>
                                         <div class="caption1">
                                             <ul class="list_3">
                                                 <li><i class="icon5"> </i><p>3,548</p></li>
@@ -93,7 +109,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 </a>
                                 <a href="/single/<%= movies[9].id %>">
                                     <div class="grid_2 col_1">
-                                        <img src="<%= movies[9].posterurl %>" class="img-responsive" alt="" />
+                                        <img src="<%= movies[9].posterurl %>" class="img-responsive" alt="" onerror="this.src='/images/image_placeholder.png';"/>
                                         <div class="caption1">
                                             <ul class="list_3">
                                                 <li><i class="icon5"> </i><p>3,548</p></li>
@@ -114,13 +130,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <li>Release Date : &nbsp;<span class="m_4"><%= movies[1].releasedate %></span> </li>
                                         <div class="clearfix"> </div>
                                     </ul>
-                                    <div class="m_5"><a href="/single/<%= movies[1].id %>"><img src="<%= movies[1].posterurl %>" class="img-responsive" alt="" /></a></div>
+                                    <div class="m_5"><a href="/single/<%= movies[1].id %>"><img src="<%= movies[1].posterurl %>" class="img-responsive" alt="" onerror="this.src='/images/image_placeholder.png';"/></a></div>
                                 </div>
                             </div>
                             <div class="clearfix"> </div>
                         </div>
-                        <div class="row_2">
-                            <a href="/single/<%= movies[2].id %>"><img src="<%= movies[2].posterurl %>" class="img-responsive" alt="" /></a>
+                        <!--<div class="row_2">
+                            <a href="/single/<%= movies[2].id %>"><img src="<%= movies[2].posterurl %>" class="img-responsive" alt="" onerror="this.src='/images/image_placeholder.png';"/></a>
+                        </div>-->
+                        <div class="video">
+                            <iframe width="100%" height="" src="https://www.youtube.com/embed/<%= movies[2].videourl %>" frameborder="0" allowfullscreen></iframe>
                         </div>
                     </div>
                     <div class="col-md-5 content_right">
@@ -128,7 +147,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="col-md-6 content_right-box">
                                 <a href="/single/<%= movies[3].id %>">
                                     <div class="grid_2">
-                                        <img src="<%= movies[3].posterurl %>" class="img-responsive" alt="" />
+                                        <img src="<%= movies[3].posterurl %>" class="img-responsive" alt="" onerror="this.src='/images/image_placeholder.png';"/>
                                         <div class="caption1">
                                             <ul class="list_5">
                                                 <li><i class="icon5"> </i><p>3,548</p></li>
@@ -142,7 +161,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="col-md-6 grid_5">
                                 <a href="/single/<%= movies[4].id %>">
                                     <div class="grid_2">
-                                        <img src="<%= movies[4].posterurl %>" class="img-responsive" alt="" />
+                                        <img src="<%= movies[4].posterurl %>" class="img-responsive" alt="" onerror="this.src='/images/image_placeholder.png';"/>
                                         <div class="caption1">
                                             <ul class="list_5">
                                                 <li><i class="icon5"> </i><p>3,548</p></li>
@@ -174,13 +193,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                             <div class="col-md-6 m_6">
                                 <a href="/single/<%= movies[6].id %>">
-                                    <img src="<%= movies[6].posterurl %>" class="img-responsive" alt="" />
+                                    <img src="<%= movies[6].posterurl %>" class="img-responsive" alt="" onerror="this.src='/images/image_placeholder.png';"/>
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2 grid_6">
-                        <div class="m_7"><a href="/single/<%= movies[7].id %>"><img src="<%= movies[7].posterurl %>" class="img-responsive" alt="" /></a></div>
+                        <div class="m_7"><a href="/single/<%= movies[7].id %>"><img src="<%= movies[7].posterurl %>" class="img-responsive" alt="" onerror="this.src='/images/image_placeholder.png';"/></a></div>
                         <div class="caption1">
                             <ul class="list_5">
                                 <li><i class="icon5"> </i><p>3,548</p></li>
@@ -197,7 +216,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <li>Release : &nbsp;<span class="m_4"><%= movies[1].releasedate %></span> </li>
                                 <div class="clearfix"> </div>
                             </ul>
-                            <div class="m_8"><a href="/single/<%= movies[8].id %>"><img src="<%= movies[8].posterurl %>" class="img-responsive" alt="" /></a></div>
+                            <div class="m_8"><a href="/single/<%= movies[8].id %>"><img src="<%= movies[8].posterurl %>" class="img-responsive" alt="" onerror="this.src='/images/image_placeholder.png';"/></a></div>
                         </div>
                     </div>
                     <div class="clearfix"> </div>

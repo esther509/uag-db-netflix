@@ -37,6 +37,7 @@
     <Compile Include="public\javascripts\register.js" />
     <Compile Include="public\javascripts\addmovie.js" />
     <Compile Include="routes\addmovie.js" />
+    <Compile Include="routes\search.js" />
     <Compile Include="routes\logout.js" />
     <Compile Include="routes\single.js" />
     <Compile Include="routes\register.js" />
@@ -46,6 +47,7 @@
     <Content Include=".gitignore" />
     <Content Include="views\admin\addmovie.html" />
     <Content Include="views\pages\error.html" />
+    <Content Include="views\pages\search.html" />
     <Content Include="views\pages\index.html" />
     <Content Include="views\pages\logout.html" />
     <Content Include="views\pages\login.html" />
