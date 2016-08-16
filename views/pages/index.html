@@ -18,7 +18,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 pager: true,
                 after: function () {
                     var currentSlide = $("." + this.namespace + "1_on").attr("id");
-                    console.log("Stopped animating and you are seeing '#" + currentSlide + "'");
+                    //console.log("Stopped animating and you are seeing '#" + currentSlide + "'");
                     var title = "";
                     var releasedate = "";
                     if (currentSlide.slice(-1) == "0") {
@@ -118,10 +118,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <div class="grid_2">
                                         <img src="<%= movies[0].posterurl %>" class="img-responsive" alt=""  />
                                         <div class="caption1">
-                                            <ul class="list_3">
+                                            <!--<ul class="list_3">
                                                 <li><i class="icon5"> </i><p>3,548</p></li>
                                             </ul>
-                                            <i class="icon4"> </i>
+                                            <i class="icon4"> </i>-->
                                             <p class="m_3"><%= movies[0].name %></p>
                                         </div>
                                     </div>
@@ -130,10 +130,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <div class="grid_2 col_1">
                                         <img src="<%= movies[9].posterurl %>" class="img-responsive" alt="" />
                                         <div class="caption1">
-                                            <ul class="list_3">
+                                            <!--<ul class="list_3">
                                                 <li><i class="icon5"> </i><p>3,548</p></li>
                                             </ul>
-                                            <i class="icon4"> </i>
+                                            <i class="icon4"> </i>-->
                                             <p class="m_3"><%= movies[9].name %></p>
                                         </div>
                                     </div>
@@ -142,9 +142,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="col-md-6 grid_7">
                                 <div class="col_2">
                                     <ul class="list_4">
-                                        <li><i class="icon1"> </i><p>2,548</p></li>
+                                        <!--<li><i class="icon1"> </i><p>2,548</p></li>
                                         <li><i class="icon2"> </i><p>215</p></li>
-                                        <li><i class="icon3"> </i><p>546</p></li>
+                                        <li><i class="icon3"> </i><p>546</p></li>-->
                                         <li>Rating : &nbsp;&nbsp;<p><img src="images/rating1.png" alt="" /></p></li>
                                         <li>Release Date : &nbsp;<span class="m_4"><%= movies[1].releasedate %></span> </li>
                                         <div class="clearfix"> </div>
@@ -168,10 +168,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <div class="grid_2">
                                         <img src="<%= movies[3].posterurl %>" class="img-responsive" alt=""  />
                                         <div class="caption1">
-                                            <ul class="list_5">
+                                            <!--<ul class="list_5">
                                                 <li><i class="icon5"> </i><p>3,548</p></li>
                                             </ul>
-                                            <i class="icon4 icon6"> </i>
+                                            <i class="icon4 icon6"> </i>-->
                                             <p class="m_3"><%= movies[3].name %></p>
                                         </div>
                                     </div>
@@ -182,10 +182,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     <div class="grid_2">
                                         <img src="<%= movies[4].posterurl %>" class="img-responsive" alt=""  />
                                         <div class="caption1">
-                                            <ul class="list_5">
+                                            <!--<ul class="list_5">
                                                 <li><i class="icon5"> </i><p>3,548</p></li>
                                             </ul>
-                                            <i class="icon4 icon6"> </i>
+                                            <i class="icon4 icon6"> </i>-->
                                             <p class="m_3"><%= movies[4].name %></p>
                                         </div>
                                     </div>
@@ -200,9 +200,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="col-md-6">
                                 <div class="col_2">
                                     <ul class="list_4">
-                                        <li><i class="icon1"> </i><p>2,548</p></li>
+                                        <!--<li><i class="icon1"> </i><p>2,548</p></li>
                                         <li><i class="icon2"> </i><p>215</p></li>
-                                        <li><i class="icon3"> </i><p>546</p></li>
+                                        <li><i class="icon3"> </i><p>546</p></li>-->
                                         <li>Rating : &nbsp;&nbsp;<p><img src="images/rating1.png" alt=""></p></li>
                                         <li>Release : &nbsp;<span class="m_4"><%= movies[6].releasedate %></span> </li>
                                         <div class="clearfix"> </div>
@@ -220,17 +220,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     <div class="col-md-2 grid_6">
                         <div class="m_7"><a href="/single/<%= movies[7].id %>"><img src="<%= movies[7].posterurl %>" class="img-responsive" alt=""  /></a></div>
                         <div class="caption1">
-                            <ul class="list_5">
+                            <!--<ul class="list_5">
                                 <li><i class="icon5"> </i><p>3,548</p></li>
                             </ul>
-                            <i class="icon4 icon6"> </i>
+                            <i class="icon4 icon6"> </i>-->
                             <p class="m_3"><%= movies[7].name %></p>
                         </div>
                         <div class="col_2 col_3">
                             <ul class="list_4">
-                                <li><i class="icon1"> </i><p>2,548</p></li>
+                                <!--<li><i class="icon1"> </i><p>2,548</p></li>
                                 <li><i class="icon2"> </i><p>215</p></li>
-                                <li><i class="icon3"> </i><p>546</p></li>
+                                <li><i class="icon3"> </i><p>546</p></li>-->
                                 <li>Rating : &nbsp;&nbsp;<p><img src="images/rating1.png" alt=""></p></li>
                                 <li>Release : &nbsp;<span class="m_4"><%= movies[1].releasedate %></span> </li>
                                 <div class="clearfix"> </div>
