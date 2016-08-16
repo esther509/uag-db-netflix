@@ -14,7 +14,7 @@ router.get('/', function (req, res) {
 
     pg.connect(connectionString, function (err, client, done) {
         // Three random movies with banner
-        var query = client.query("SELECT bannerurl, id, releasedate FROM movie WHERE NOT bannerurl='' ORDER by random() LIMIT 3");
+        var query = client.query("SELECT bannerurl, id, releasedate, name FROM movie WHERE NOT bannerurl='' AND NOT bannerurl='N/A' ORDER by random() LIMIT 3");
 
         query.on("error", function (error) {
             done();
