@@ -311,6 +311,15 @@ ul.callbacks_tabs.callbacks1_tabs {
   background-position: right top;
   right: 0;
  }
+.crop {
+  overflow: hidden;
+  width: 250px;
+  height: 230px;
+}
+.crop img {
+  width: auto;
+  height: auto;
+}
 /*-- responsive-mediaquries --*/
 @media(max-width:1024px){
 	.caption {

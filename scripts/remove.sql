@@ -1,0 +1,12 @@
+DROP TABLE IF EXISTS public.directed_by;
+DROP TABLE IF EXISTS public.acts_in;
+DROP TABLE IF EXISTS public.watched_by;
+DROP TABLE IF EXISTS public.commented_by;
+DROP TABLE IF EXISTS public.rated_by;
+DROP TABLE IF EXISTS public.movie_category;
+DROP TABLE IF EXISTS public.movie_award;
+DROP TABLE IF EXISTS public.movie;
+DROP TABLE IF EXISTS public.director;
+DROP TABLE IF EXISTS public.user;
+DROP TABLE IF EXISTS public.award;
+DROP TABLE IF EXISTS public.category;
