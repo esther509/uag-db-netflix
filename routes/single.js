@@ -66,14 +66,29 @@ router.get('/:movieid', function (req, res) {
         var sess = req.session;
         query.on('end', function (result) {
 
-            done();
-            console.log(result);
+            var movie = {};
             if (result.rowCount > 0) {
-                console.log(result.rows[0]);
-                res.render('pages/single', helper.createRenderParams(req.session, { movie: result.rows[0] } ));
-            } else {
-                res.render('pages/single', helper.createRenderParams(req.session));
+                movie = result.rows[0];
             }
+
+            // Three random movies with banner
+            var query3Imgs = client.query("SELECT posterurl, id, name FROM movie WHERE NOT posterurl='' AND NOT posterurl='N/A' ORDER by random() LIMIT 3");
+
+            query3Imgs.on('error', function (err) {
+                done();
+                console.log(err);
+                res.render('pages/single', helper.createRenderParams(req.session));
+            });
+
+            query3Imgs.on('row', function (row, result) {
+                result.addRow(row);
+            });
+
+            query3Imgs.on('end', function (result) {
+                done();
+
+                res.render('pages/single', helper.createRenderParams(req.session, { movie: movie, ads: result.rows }));
+            });
 
         });
     });
