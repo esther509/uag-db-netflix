@@ -28,7 +28,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <% } %>
                                 <img src="<%= movie.posterurl %>" class="img-responsive" alt="" />
                             </div>
-                            <!--<div class="movie_rate">
+                            <% if(username != "") { %>
+                            <div class="movie_rate">
                                 <div class="rating_desc"><p>Your Vote :</p></div>
                                 <form action="" class="sky-form">
                                     <fieldset>
@@ -49,7 +50,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                     </fieldset>
                                 </form>
                                 <div class="clearfix"> </div>
-                            </div>-->
+                            </div>
+                            <% } %>
                         </div>
                         <div class="desc1 span_3_of_2">
                             <p class="movie_option"><h1><%= movie.moviename %></h1></p>

@@ -16,7 +16,7 @@ router.get('/', function (req, res) {
 });
 
 router.get('/:username', function (req, res) {
-    res.render('pages/login', helper.createRenderParams(req.session, { userhint: username }));
+    res.render('pages/login', helper.createRenderParams(req.session, { userhint: req.params.username }));
 });
 
 router.post('/', function (req, res) {
