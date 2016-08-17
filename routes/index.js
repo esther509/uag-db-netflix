@@ -13,8 +13,18 @@ var connectionString = process.env.DATABASE_URL || "postgres://Sergio:admin@loca
 router.get('/', function (req, res) {
 
     pg.connect(connectionString, function (err, client, done) {
+
+        var bannerString = `
+            SELECT bannerurl, id, releasedate, name, coalesce(FLOOR(AVG(rate)), 0) as rate
+            FROM movie FULL OUTER JOIN rated_by ON movie.id=rated_by.movie_id 
+            WHERE NOT bannerurl='' AND NOT bannerurl='N/A' 
+            GROUP BY movie.id 
+            ORDER by random() 
+            LIMIT 3
+        `;
+
         // Three random movies with banner
-        var query = client.query("SELECT bannerurl, id, releasedate, name FROM movie WHERE NOT bannerurl='' AND NOT bannerurl='N/A' ORDER by random() LIMIT 3");
+        var query = client.query(bannerString);
 
         query.on("error", function (error) {
             done();
@@ -28,7 +38,16 @@ router.get('/', function (req, res) {
         query.on("end", function (result) {
             var banners = result.rows;
 
-            var queryFeatured = client.query("SELECT name, posterurl, id, videourl, releasedate FROM movie WHERE NOT videourl='' AND NOT posterurl='' ORDER by random() LIMIT 10");
+            var featuredString = `
+                SELECT name, posterurl, id, videourl, releasedate, ('/images/rating1_' || to_char(coalesce(FLOOR(AVG(rate)), 0), '9') || '.png') as rate 
+                FROM movie FULL OUTER JOIN rated_by ON movie.id=rated_by.movie_id 
+                WHERE NOT videourl='' AND NOT posterurl='' AND NOT posterurl='N/A' 
+                GROUP BY movie.id 
+                ORDER by random() 
+                LIMIT 10;
+            `;
+
+            var queryFeatured = client.query(featuredString);
 
             queryFeatured.on("error", function (error) {
                 done();
@@ -36,6 +55,8 @@ router.get('/', function (req, res) {
             });
 
             queryFeatured.on("row", function (row, result) {
+                //console.log();
+                row.rate = row.rate.replace(" ", "");
                 result.addRow(row);
             });
 

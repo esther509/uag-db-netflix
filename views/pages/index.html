@@ -21,18 +21,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                     //console.log("Stopped animating and you are seeing '#" + currentSlide + "'");
                     var title = "";
                     var releasedate = "";
+                    var rating = "/images/rating_";
                     if (currentSlide.slice(-1) == "0") {
                         title = '<%= banners[0].name %>';
                         releasedate = '<%= banners[0].releasedate %>';
+                        rating = rating + '<%= banners[0].rate %>';
                     } else if (currentSlide.slice(-1) == "1") {
                         title = '<%= banners[1].name %>';
                         releasedate = '<%= banners[1].releasedate %>';
+                        rating = rating + '<%= banners[1].rate %>';
                     } else {
                         title = '<%= banners[2].name %>';
                         releasedate = '<%= banners[2].releasedate %>';
+                        rating = rating + '<%= banners[2].rate %>';
                     }
                     $('#slider-movie-title').html(title);
                     $('#slider-movie-releasedate').html(releasedate);
+                    $('#slider-movie-rating').html(rating + ".png");
                 }
             });
         });
@@ -71,7 +76,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <li id="slider-movie-title"><%= banners[0].name %></li>
                             <li>Published <span class="m_1" id="slider-movie-releasedate"><%= banners[0].releasedate %></span></li>
                             <!--<li>Updated <span class="m_1">Feb 20 2015</span></li>-->
-                            <li>Rating <span class="m_1"><img src="images/rating.png" alt="" /></span></li>
+                            <li>Rating <span class="m_1"><img id="slider-movie-rating" src="/images/rating_<%=banners[0].rate%>.png" alt="" /></span></li>
                         </ul>
                     </div>
                     <!--<div class="col-md-3 grid_1">
@@ -116,7 +121,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="col-md-6 grid_4">
                                 <a href="/single/<%= movies[0].id %>">
                                     <div class="grid_2">
-                                        <img src="<%= movies[0].posterurl %>" class="img-responsive" alt=""  />
+                                        <img src="<%= movies[0].posterurl %>" class="img-responsive" alt="" />
                                         <div class="caption1">
                                             <p class="m_3"><%= movies[0].name %></p>
                                         </div>
@@ -138,11 +143,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <li><i class="icon2"> </i><p>215</p></li>
                                         <li><i class="icon3"> </i><p>546</p></li>-->
                                         <li> <%= movies[1].name %></li>
-                                        <li>Rating : &nbsp;&nbsp;<p><img src="images/rating1.png" alt="" /></p></li>
+                                        <li>Rating : &nbsp;&nbsp;<p><img src="<%= movies[1].rate %>" alt="" /></p></li>
                                         <li>Release Date : &nbsp;<span class="m_4"><%= movies[1].releasedate %></span> </li>
                                         <div class="clearfix"> </div>
                                     </ul>
-                                    <div class="m_5"><a href="/single/<%= movies[1].id %>"><img src="<%= movies[1].posterurl %>" class="img-responsive" alt=""  /></a></div>
+                                    <div class="m_5"><a href="/single/<%= movies[1].id %>"><img src="<%= movies[1].posterurl %>" class="img-responsive" alt="" /></a></div>
                                 </div>
                             </div>
                             <div class="clearfix"> </div>
@@ -159,7 +164,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="col-md-6 content_right-box">
                                 <a href="/single/<%= movies[3].id %>">
                                     <div class="grid_2">
-                                        <img src="<%= movies[3].posterurl %>" class="img-responsive" alt=""  />
+                                        <img src="<%= movies[3].posterurl %>" class="img-responsive" alt="" />
                                         <div class="caption1">
                                             <p class="m_3"><%= movies[3].name %></p>
                                         </div>
@@ -169,7 +174,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             <div class="col-md-6 grid_5">
                                 <a href="/single/<%= movies[4].id %>">
                                     <div class="grid_2">
-                                        <img src="<%= movies[4].posterurl %>" class="img-responsive" alt=""  />
+                                        <img src="<%= movies[4].posterurl %>" class="img-responsive" alt="" />
                                         <div class="caption1">
                                             <p class="m_3"><%= movies[4].name %></p>
                                         </div>
@@ -189,7 +194,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                         <li><i class="icon2"> </i><p>215</p></li>
                                         <li><i class="icon3"> </i><p>546</p></li>-->
                                         <li><%= movies[6].name %> </li>
-                                        <li>Rating : &nbsp;&nbsp;<p><img src="images/rating1.png" alt=""></p></li>
+                                        <li>Rating : &nbsp;&nbsp;<p><img src="<%= movies[6].rate %>" alt=""></p></li>
                                         <li>Release : &nbsp;<span class="m_4"><%= movies[6].releasedate %></span> </li>
                                         <div class="clearfix"> </div>
                                     </ul>
@@ -198,13 +203,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                             </div>
                             <div class="col-md-6 m_6">
                                 <a href="/single/<%= movies[6].id %>">
-                                    <img src="<%= movies[6].posterurl %>" class="img-responsive" alt=""  />
+                                    <img src="<%= movies[6].posterurl %>" class="img-responsive" alt="" />
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-2 grid_6">
-                        <div class="m_7"><a href="/single/<%= movies[7].id %>"><img src="<%= movies[7].posterurl %>" class="img-responsive" alt=""  /></a></div>
+                        <div class="m_7"><a href="/single/<%= movies[7].id %>"><img src="<%= movies[7].posterurl %>" class="img-responsive" alt="" /></a></div>
                         <div class="caption1">
                             <!--<ul class="list_5">
                                 <li><i class="icon5"> </i><p>3,548</p></li>
@@ -217,12 +222,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                                 <!--<li><i class="icon1"> </i><p>2,548</p></li>
                                 <li><i class="icon2"> </i><p>215</p></li>
                                 <li><i class="icon3"> </i><p>546</p></li>-->
-                                <li><%= movies[1].name %> </li>
-                                <li>Rating : &nbsp;&nbsp;<p><img src="images/rating1.png" alt=""></p></li>
-                                <li>Release : &nbsp;<span class="m_4"><%= movies[1].releasedate %></span> </li>
+                                <li><%= movies[8].name %> </li>
+                                <li>Rating : &nbsp;&nbsp;<p><img src="<%= movies[8].rate %>" alt=""></p></li>
+                                <li>Release : &nbsp;<span class="m_4"><%= movies[8].releasedate %></span> </li>
                                 <div class="clearfix"> </div>
                             </ul>
-                            <div class="m_8"><a href="/single/<%= movies[8].id %>"><img src="<%= movies[8].posterurl %>" class="img-responsive" alt=""  /></a></div>
+                            <div class="m_8"><a href="/single/<%= movies[8].id %>"><img src="<%= movies[8].posterurl %>" class="img-responsive" alt="" /></a></div>
                         </div>
                     </div>
                     <div class="clearfix"> </div>

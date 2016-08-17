@@ -85,14 +85,80 @@ router.get('/:movieid', function (req, res) {
             });
 
             query3Imgs.on('end', function (result) {
-                done();
+                
 
-                res.render('pages/single', helper.createRenderParams(req.session, { movie: movie, ads: result.rows }));
+                var ads = result.rows;
+
+                var userid = "";
+                if (sess && sess.username) {
+                    userid = sess.userid;
+                }
+
+                if (userid == "") {
+                    done();
+                    res.render('pages/single', helper.createRenderParams(req.session, { movie: movie, ads: ads, movieid: movieid, rating: "0" }));
+                    return;
+                }
+
+                // Three random movies with banner
+                var queryRating = client.query("SELECT rate FROM movie INNER JOIN rated_by ON movie.id=rated_by.movie_id WHERE rated_by.user_id = $1 AND movie.id = $2", [userid, movieid]);
+
+                queryRating.on('error', function (err) {
+                    done();
+                    console.log(err);
+                    res.render('pages/single', helper.createRenderParams(req.session));
+                });
+
+                queryRating.on('row', function (row, result) {
+                    result.addRow(row);
+                });
+
+                queryRating.on('end', function (result) {
+                    done();
+
+                    rating = "0";
+
+                    if (result.rowCount > 0) {
+                        rating = result.rows[0].rate;
+                    }
+                    console.log("************************| " + rating + " |**********************************");
+                    res.render('pages/single', helper.createRenderParams(req.session, { movie: movie, ads: ads, movieid: movieid, rating: rating }));
+                });
             });
 
         });
     });
     
+});
+
+router.post('/:movieid/rate', function (req, res) {
+    var movieid = req.params.movieid;
+    var rate = req.body.rating;
+
+    var sess = req.session;
+    if (sess.username == "") {
+        res.json({ success: false });
+        return;
+    }
+
+    pg.connect(connectionString, function (err, client, done) {
+
+        var sqlString = "INSERT INTO rated_by (movie_id, user_id, rate) VALUES ($1, $2, $3) ON CONFLICT (movie_id, user_id) DO UPDATE SET rate = $3";
+
+        var query = client.query(sqlString, [movieid, sess.userid, rate]);
+
+        query.on("error", function (err) {
+            done();
+            console.log(err);
+            res.json({ success: false });
+        });
+
+        query.on('end', function (result) {
+            done();
+            console.log(result);
+            res.json({ success: true });
+        });4
+    });
 });
 
 module.exports = router;

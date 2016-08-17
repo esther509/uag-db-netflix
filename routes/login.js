@@ -42,6 +42,7 @@ router.post('/', function (req, res) {
 
             done();
             if (result.rowCount > 0) {
+                req.session.userid = result.rows[0].id;
                 req.session.username = result.rows[0].username;
                 req.session.type = result.rows[0].user_type;
                 req.session.save();
