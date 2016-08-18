@@ -75,13 +75,15 @@ router.get('/', function (req, res) {
             metascore,
             string_agg(DISTINCT(director.name), ', ') as directors,
             string_agg(DISTINCT(category.name), ', ') as categories,
-            string_agg(DISTINCT(acts_in.actor_name), ', ') as actors
+            string_agg(DISTINCT(acts_in.actor_name), ', ') as actors,
+            ('/images/rating1_' || to_char(coalesce(FLOOR(AVG(rate)), 0), '9') || '.png') as rate 
         FROM director 
         INNER JOIN directed_by ON director.id = directed_by.director_id
         INNER JOIN movie ON movie.id = directed_by.movie_id
         INNER JOIN acts_in ON movie.id = acts_in.movie_id
         INNER JOIN movie_category ON movie.id = movie_category.movie_id
         INNER JOIN category ON category.id = movie_category.category_id 
+        FULL OUTER JOIN rated_by ON movie.id=rated_by.movie_id 
         GROUP BY movie.id ` + having;
 
         var query = client.query(queryString);
@@ -93,6 +95,7 @@ router.get('/', function (req, res) {
         });
 
         query.on('row', function (row, result) {
+            row.rate = row.rate.replace(" ", "");
             result.addRow(row);
         });
 
